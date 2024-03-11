@@ -1,16 +1,19 @@
 ---
 import Header from '@/components/Header.astro';
 import { Button } from '@/components/ui/button';
-import '@/styles/globals.css';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="ViaMão - Your Trip Planner">
   <Header />
 
-	<main>
-		<h1>Organize, plan, and enjoy your vacations hassle-free</h1>
+	<main class="py-8 px-4 grid grid-cols-[minmax(auto,43em)] justify-center">
+    <div class="flex flex-col items-center">
+      <h1 class="text-center text-4xl font-bold max-w-xl">Organize, plan, and enjoy your vacations hassle-free</h1>
 
-		<Button>Get Started</Button>
+      <p class="font-bold text-muted-foreground mt-6 max-w-[26.5em] text-center">Your next vacation in the palm of your hand. Streamline your travel plans effortlessly with ViaMão.</p>
+
+      <Button size='lg' className='w-full max-w-72 mt-12'>Get Started</Button>
+    </div>
 	</main>
 </Layout>
