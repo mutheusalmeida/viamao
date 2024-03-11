@@ -1,0 +1,25 @@
+---
+import logo from '@/assets/logo.svg';
+import { Button } from '@/components/ui/button';
+import { Image } from 'astro:assets';
+import NavItem from './nav/NavItem.astro';
+---
+<header class="py-3 grid grid-cols-[minmax(auto,_960px)] justify-center">
+  <div class="flex px-4 min-h-16 items-center justify-between">
+    <div class="flex gap-6 items-center">
+      <Image aria-role="Logo" class='max-h-7 aspect-auto' src={logo} alt="ViaMão logo" />
+
+      <nav aria-role="Main navigation">
+        <ul class="flex space-x-6">
+          <NavItem href='/'>Home</NavItem>
+
+          <NavItem href='/my-trips'>My Trips</NavItem>
+        </ul>
+      </nav>
+    </div>
+
+
+
+    <Button className='w-max' variant="secondary">Log in</Button>
+  </div>
+</header>
