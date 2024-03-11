@@ -10,7 +10,8 @@
     "astro": "astro",
     "type-check": "tsc --noEmit --project tsconfig.json --pretty --noEmit",
     "lint": "eslint src --ext .ts,.tsx,.astro",
-    "lint:fix": "pnpm lint --fix"
+    "lint:fix": "pnpm lint --fix",
+    "prepare": "husky"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.7",
@@ -28,13 +29,15 @@
     "tailwind-merge": "^2.2.1",
     "tailwindcss": "^3.4.1",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.2",
+    "vite-plugin-svgr": "^4.2.0"
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^7.2.0",
     "eslint": "^8.57.0",
     "eslint-plugin-astro": "^0.31.4",
     "eslint-plugin-jsx-a11y": "^6.8.0",
+    "husky": "^9.0.11",
     "prettier-plugin-astro": "^0.13.0",
     "prettier-plugin-tailwindcss": "^0.5.12"
   }
