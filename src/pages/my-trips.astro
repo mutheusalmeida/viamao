@@ -1,0 +1,15 @@
+---
+import Header from '@/components/Header.astro';
+import type { SessionType } from 'session';
+import Layout from '../layouts/Layout.astro';
+
+const session = Astro.cookies.get('session')
+---
+
+<Layout title="ViaMão - My Trips">
+  <Header session={session?.json() as unknown as SessionType} />
+
+	<main class="py-8 px-4 grid grid-cols-[minmax(auto,60em)] justify-center">
+    Hello
+	</main>
+</Layout>

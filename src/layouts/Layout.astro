@@ -1,6 +1,5 @@
 ---
 import Footer from '@/components/Footer.astro';
-import Header from '@/components/Header.astro';
 import '@/styles/globals.css';
 import '@fontsource-variable/quicksand';
 
@@ -22,10 +21,8 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body class="grid grid-rows-[auto_1fr_auto] h-full">
-    <Header />
-
 		<slot />
 
-		<Footer />
+    <Footer />
 	</body>
 </html>
