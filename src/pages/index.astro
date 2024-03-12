@@ -1,7 +1,10 @@
 ---
 import Header from '@/components/Header.astro';
 import { Button } from '@/components/ui/button';
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
+
+import heroImage from '@/assets/hero-image.png';
 ---
 
 <Layout title="ViaMão - Your Trip Planner">
@@ -9,11 +12,15 @@ import Layout from '../layouts/Layout.astro';
 
 	<main class="py-8 px-4 grid grid-cols-[minmax(auto,43em)] justify-center">
     <div class="flex flex-col items-center">
-      <h1 class="text-center text-4xl font-bold max-w-xl">Organize, plan, and enjoy your vacations hassle-free</h1>
+      <Image class="rounded-[1em] md:rounded-[1.75em]" src={heroImage} alt="family at the beach" aria-roledescription='family at the beach' />
+
+      <h1 class="text-center text-xl md:text-4xl mt-7 font-bold max-w-xl">Organize, plan, and enjoy your vacations hassle-free</h1>
 
       <p class="font-bold text-muted-foreground mt-6 max-w-[26.5em] text-center">Your next vacation in the palm of your hand. Streamline your travel plans effortlessly with ViaMão.</p>
 
       <Button size='lg' className='w-full max-w-72 mt-12'>Get Started</Button>
+
+      <span class="text-sm font-medium text-neutral-500 mt-4">No credit card required</span>
     </div>
 	</main>
 </Layout>
