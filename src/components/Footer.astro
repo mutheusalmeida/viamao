@@ -1,0 +1,47 @@
+---
+import logo from '@/assets/logo.svg';
+import { Image } from 'astro:assets';
+---
+<footer class="py-10 bg-neutral-100 border-t px-4  grid grid-cols-[minmax(auto,_60em)] justify-center">
+    <div class="flex flex-col sm:flex-row gap-6 justify-between">
+      <div class="flex flex-col gap-4">
+        <a href="/" class="w-max">
+          <Image aria-role="Logo" class='max-h-7 object-cover' src={logo} alt="ViaMão logo" />
+        </a>
+
+        <span class="font-semibold text-neutral-500">&copy; 2024 - All rights reserved</span>
+      </div>
+
+      <nav class="flex flex-col gap-4 font-semibold" aria-role="Links navigation">
+        <h2 class="text-neutral-500 uppercase">Links</h2>
+
+        <ul class="flex flex-col space-y-2 text-sm">
+          <li class="hover:underline">
+            <a href='/'>Support</a>
+          </li>
+
+          <li class="hover:underline">
+            <a href='/'>Blog</a>
+          </li>
+
+          <li class="hover:underline">
+            <a href='/'>Inspiration</a>
+          </li>
+        </ul>
+      </nav>
+
+      <nav class="flex flex-col gap-4 font-semibold" aria-role="Legal navigation">
+        <h2 class="text-neutral-500 uppercase">Legal</h2>
+
+        <ul class="flex flex-col space-y-2 text-sm">
+          <li class="hover:underline">
+            <a href='/'>Terms of Service</a>
+          </li>
+
+          <li class="hover:underline">
+            <a href='/'>Cookies</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+</footer>

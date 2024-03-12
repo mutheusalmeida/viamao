@@ -1,5 +1,4 @@
 ---
-import Header from '@/components/Header.astro';
 import { Button } from '@/components/ui/button';
 import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
@@ -8,8 +7,6 @@ import heroImage from '@/assets/hero-image.png';
 ---
 
 <Layout title="ViaMão - Your Trip Planner">
-  <Header />
-
 	<main class="py-8 px-4 grid grid-cols-[minmax(auto,43em)] justify-center">
     <div class="flex flex-col items-center">
       <Image class="rounded-[1em] md:rounded-[1.75em]" src={heroImage} alt="family at the beach" aria-roledescription='family at the beach' />
