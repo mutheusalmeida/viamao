@@ -167,7 +167,7 @@ export const AddTripForm = () => {
                             )}
                           >
                             {field.value ? (
-                              format(field.value, "PPP")
+                              format(field.value, "PP")
                             ) : (
                               <span>Pick a start date</span>
                             )}
@@ -209,7 +209,7 @@ export const AddTripForm = () => {
                             )}
                           >
                             {field.value ? (
-                              format(field.value, "PPP")
+                              format(field.value, "PP")
                             ) : (
                               <span>Pick an end date</span>
                             )}

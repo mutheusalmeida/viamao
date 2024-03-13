@@ -1,6 +1,7 @@
 import { LikeIcon } from "@/assets/like-icon";
 import MapPin from "@/assets/map-pin.svg?react";
 import { useTripImage } from "@/components/hooks/use-trip-image";
+import { useRemoveTrip } from "@/components/trip/hooks/use-remove-trip";
 import { Button } from "@/components/ui/button";
 import { format, isSameMonth, isSameYear } from "date-fns";
 import type { TripType } from "trip";
@@ -11,6 +12,7 @@ type TripCardProps = {
 
 export const TripCard = ({ data }: TripCardProps) => {
   const { data: image } = useTripImage(data.destination);
+  const { mutate } = useRemoveTrip();
 
   return (
     <div className="relative">
@@ -20,6 +22,8 @@ export const TripCard = ({ data }: TripCardProps) => {
       >
         <LikeIcon />
       </Button>
+
+      <Button onClick={() => mutate({ id: data.id })}>Remove</Button>
 
       <a href={`/my-trips/${data.id}`}>
         <div className="w-full text-sm h-max font-medium space-y-3">
@@ -35,7 +39,7 @@ export const TripCard = ({ data }: TripCardProps) => {
             <div className="h-7 px-2 left-2 bottom-2 flex items-center bg-white rounded-full absolute text-sm font-medium gap-1">
               <MapPin className="w-4 h-4 fill-primary" />
 
-              {data.destination}
+              <span className="line-clamp-1">{data.destination}</span>
             </div>
           </div>
 

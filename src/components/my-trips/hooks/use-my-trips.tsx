@@ -19,7 +19,7 @@ const getTrips = ({ pageParam = 0 }: Params): Promise<Response> =>
   });
 
 export const useMyTrips = () => {
-  const queryKey = getQueryKey("my-trips");
+  const queryKey = getQueryKey("trips");
   const config: UseInfiniteQueryOptions<
     Response,
     unknown,
