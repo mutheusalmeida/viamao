@@ -31,13 +31,13 @@ const { session } = Astro.props
 
     {session ? (
       <div class="flex gap-5">
-        <Link href="/my-trips/new" className='gap-1 text-primary hover:text-white hover:bg-primary bg-primary/20'>
+        <Link href="/my-trips/new" size='sm' className='gap-1 text-primary hover:text-white hover:bg-primary bg-primary/20'>
           <Plus className='w-3.5 h-3.5' />
 
           Add trip
         </Link>
 
-        <AccountDropdown client:idle user={session.user} />
+        <AccountDropdown client:load user={session.user} />
       </div>
     ) : (
       <Link href='/login' size='sm' className='w-max' variant="secondary">Log in</Link>

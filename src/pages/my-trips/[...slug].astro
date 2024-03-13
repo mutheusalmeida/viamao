@@ -19,6 +19,6 @@ if (!slug) return Astro.redirect("/404");
   <Header session={session?.json() as unknown as SessionType} />
 
 	<main class="py-28 px-4 grid grid-cols-[minmax(auto,26.5em)] justify-center">
-    <Trip client:idle id={slug} />
+    <Trip client:load id={slug} />
 	</main>
 </Layout>
