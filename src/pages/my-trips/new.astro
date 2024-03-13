@@ -1,0 +1,16 @@
+---
+import Header from '@/components/Header.astro';
+import { AddTripForm } from '@/components/add-trip-form';
+import type { SessionType } from 'session';
+import Layout from '../../layouts/Layout.astro';
+
+const session = Astro.cookies.get('session')
+---
+
+<Layout title="ViaMão - My next trip">
+  <Header session={session?.json() as unknown as SessionType} />
+
+	<main class="py-28 px-4 grid grid-cols-[minmax(auto,26.5em)] justify-center">
+    <AddTripForm client:only="react" />
+	</main>
+</Layout>

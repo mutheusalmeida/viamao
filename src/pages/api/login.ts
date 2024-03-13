@@ -4,13 +4,16 @@ export const POST: APIRoute = async ({ request, cookies }) => {
   const data = await request.json();
 
   try {
-    const response = await fetch("http://192.168.0.3:8080/api/v1/auth", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
+    const response = await fetch(
+      `${import.meta.env.PUBLIC_API_BASE_URL}/auth`,
+      {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
       },
-    });
+    );
 
     if (!response.ok) {
       const data = await response.json();

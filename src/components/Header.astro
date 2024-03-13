@@ -1,6 +1,8 @@
 ---
 import logo from '@/assets/logo.svg';
+import { AccountDropdown } from '@/components/nav/account-dropdown';
 import { Image } from 'astro:assets';
+import { Plus } from 'lucide-react';
 import type { SessionType } from 'session';
 import NavItem from './nav/NavItem.astro';
 import { Link } from './ui/link';
@@ -28,7 +30,15 @@ const { session } = Astro.props
     </div>
 
     {session ? (
-      <span class="text-sm text-muted-foreground font-medium">{session.user.email}</span>
+      <div class="flex gap-5">
+        <Link href="/my-trips/new" className='gap-1 text-primary hover:text-white hover:bg-primary bg-primary/20'>
+          <Plus className='w-3.5 h-3.5' />
+
+          Add trip
+        </Link>
+
+        <AccountDropdown client:idle user={session.user} />
+      </div>
     ) : (
       <Link href='/login' size='sm' className='w-max' variant="secondary">Log in</Link>
     )}

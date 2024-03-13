@@ -6,7 +6,7 @@ import Layout from '../layouts/Layout.astro';
 let session = Astro.cookies.get('session')
 
 if (session?.value) {
-  return Astro.redirect('/')
+  return Astro.redirect('/my-trips')
 }
 ---
 <Layout title="ViaMão - Log in">
