@@ -1,21 +1,24 @@
 ---
 import Header from '@/components/Header.astro';
+import { Trip } from '@/components/trip';
 import type { SessionType } from 'session';
 import Layout from '../../layouts/Layout.astro';
 
 const session = Astro.cookies.get('session')
 
+if (!session?.value) {
+  return Astro.redirect('/')
+}
+
 const { slug } = Astro.params;
 
 if (!slug) return Astro.redirect("/404");
-
-console.log(slug)
 ---
 
 <Layout title="ViaMão - Trip title">
   <Header session={session?.json() as unknown as SessionType} />
 
 	<main class="py-28 px-4 grid grid-cols-[minmax(auto,26.5em)] justify-center">
-    hello
+    <Trip client:idle id={slug} />
 	</main>
 </Layout>

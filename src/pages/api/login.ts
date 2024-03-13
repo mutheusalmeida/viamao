@@ -33,7 +33,6 @@ export const POST: APIRoute = async ({ request, cookies }) => {
 
     cookies.set("session", JSON.stringify(session), {
       path: "/",
-      httpOnly: true,
     });
 
     return new Response(

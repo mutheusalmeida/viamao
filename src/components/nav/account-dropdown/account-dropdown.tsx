@@ -8,10 +8,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import type { User } from "session";
+import type { UserType } from "session";
 
 type AccountDropdownProps = {
-  user: User;
+  user: UserType;
 };
 
 export const AccountDropdown = ({ user }: AccountDropdownProps) => {
