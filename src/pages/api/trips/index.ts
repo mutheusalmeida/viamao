@@ -35,6 +35,7 @@ export const POST: APIRoute = async ({ request, cookies }) => {
           JSON.stringify({
             ok: false,
             message: data.error,
+            status: response.status,
           }),
           {
             status: response.status,
@@ -58,6 +59,7 @@ export const POST: APIRoute = async ({ request, cookies }) => {
     return new Response(
       JSON.stringify({
         ok: false,
+        status: 401,
       }),
       {
         status: 401,

@@ -5,6 +5,10 @@ import type { SessionType } from 'session';
 import Layout from '../../layouts/Layout.astro';
 
 const session = Astro.cookies.get('session')
+
+if (!session?.value) {
+  return Astro.redirect('/')
+}
 ---
 
 <Layout title="ViaMão - My next trip">

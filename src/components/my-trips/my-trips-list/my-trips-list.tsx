@@ -16,24 +16,14 @@ export const MyTripsList = () => {
     }
   }, [isIntersecting, hasNextPage]);
 
-  console.log(data);
-
   return (
     <div className="grid grid-cols-[repeat(auto-fill,_minmax(226px,_1fr))] gap-8">
       {data?.pages[0]?.total_elements ? (
         data?.pages?.map((page, index) => (
           <Fragment key={index}>
-            {page.content.map((trip, index) => (
+            {page.content.map((trip) => (
               <Fragment key={trip.id}>
                 <TripCard data={trip} />
-
-                {!hasNextPage &&
-                  page.last &&
-                  index === page.content.length - 1 && (
-                    <div className="flex justify-center h-max col-span-full text-sm text-neutral-500">
-                      <span>No more trips</span>
-                    </div>
-                  )}
               </Fragment>
             ))}
           </Fragment>

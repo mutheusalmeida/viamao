@@ -65,6 +65,10 @@ export const AddTripForm = () => {
     const result = await response.json();
 
     if (!result.ok) {
+      if (result.status === 401) {
+        window.location.replace("/");
+      }
+
       setError(result.message);
       setIsLoading(false);
 
