@@ -1,20 +1,24 @@
 ---
 import Header from '@/components/Header.astro';
 import type { SessionType } from 'session';
-import Layout from '../../layouts/Layout.astro';
-import { AddTripForm } from '@/components/trip/add-trip-form';
+import Layout from '@/layouts/Layout.astro';
+import { EditTrip } from '@/components/edit-trip';
 
 const session = Astro.cookies.get('session')
 
 if (!session?.value) {
   return Astro.redirect('/')
 }
+
+const { slug } = Astro.params;
+
+if (!slug) return Astro.redirect("/404");
 ---
 
-<Layout title="ViaMão - My next trip">
+<Layout title="ViaMão - Edit trip">
   <Header session={session?.json() as unknown as SessionType} />
 
 	<main class="py-28 px-4 grid grid-cols-[minmax(auto,26.5em)] justify-center">
-    <AddTripForm client:only="react" />
+    <EditTrip client:only="react" id={slug} />
 	</main>
 </Layout>

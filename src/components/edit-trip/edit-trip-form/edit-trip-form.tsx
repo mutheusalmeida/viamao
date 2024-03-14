@@ -1,3 +1,4 @@
+import { useTrip } from "@/components/hooks/use-trip";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -8,20 +9,26 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Link } from "@/components/ui/link";
 import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { addDays, format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { z } from "zod";
-import { Calendar } from "../ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
-import { Textarea } from "../ui/textarea";
+import { Calendar } from "../../ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "../../ui/popover";
+import { Textarea } from "../../ui/textarea";
 
-export const AddTripForm = () => {
+type EditTripFormProps = {
+  id: string;
+};
+
+export const EditTripForm = ({ id }: EditTripFormProps) => {
   const [error, setError] = useState<string>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const { data } = useTrip(id);
 
   const formSchema = z.object({
     title: z.string().min(1, "Title is required"),
@@ -48,17 +55,29 @@ export const AddTripForm = () => {
     },
   });
 
+  useEffect(() => {
+    if (data) {
+      form.reset({
+        title: data.title,
+        description: data.description,
+        destination: data.destination,
+        start_date: new Date(data.start_date),
+        end_date: new Date(data.end_date),
+      });
+    }
+  }, [data]);
+
   const onSubmit: SubmitHandler<FormSchemaType> = async (data) => {
     const formatedData = {
       ...data,
-      start_date: new Date(data.start_date),
-      end_date: new Date(data.end_date),
+      start_date: data.start_date,
+      end_date: data.end_date,
     };
 
     setIsLoading(true);
 
-    const response = await fetch("/api/trips", {
-      method: "POST",
+    const response = await fetch(`/api/trips/${id}`, {
+      method: "PUT",
       body: JSON.stringify(formatedData),
     });
 
@@ -76,13 +95,12 @@ export const AddTripForm = () => {
     }
 
     setIsLoading(false);
-    form.reset();
-    window.location.replace(`/my-trips/${result.data.id}`);
+    window.location.assign("..");
   };
 
   return (
     <div>
-      <h1 className="text-center mb-12 font-bold text-4xl">My next trip</h1>
+      <h1 className="text-center mb-12 font-bold text-4xl">Edit trip</h1>
 
       {error && (
         <p className="text-sm mb-5 text-center font-medium text-destructive">
@@ -243,8 +261,18 @@ export const AddTripForm = () => {
               disabled={isLoading}
               className="w-full gap-2 disabled:opacity-75"
             >
-              {isLoading ? <>Loading...</> : <>Continue</>}
+              {isLoading ? <>Loading...</> : <>Save</>}
             </Button>
+
+            <Link
+              size="sm"
+              variant="link"
+              href=".."
+              type="button"
+              className="w-full h-max text-foreground hover:no-underline"
+            >
+              Cancel
+            </Link>
           </form>
         </Form>
       </div>

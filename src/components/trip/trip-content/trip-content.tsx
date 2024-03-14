@@ -1,7 +1,8 @@
 import MapPin from "@/assets/map-pin.svg?react";
 import { useTripImage } from "@/components/hooks/use-trip-image";
 import { format, isSameMonth, isSameYear } from "date-fns";
-import { useTrip } from "../hooks/use-trip";
+import { useEffect } from "react";
+import { useTrip } from "../../hooks/use-trip";
 
 type TripContentProps = {
   id: string;
@@ -10,6 +11,12 @@ type TripContentProps = {
 export const TripContent = ({ id }: TripContentProps) => {
   const { data } = useTrip(id);
   const { data: image } = useTripImage(data?.destination);
+
+  useEffect(() => {
+    if (data) {
+      document.title = `ViaMão - ${data.title}`;
+    }
+  }, [data]);
 
   if (!data) {
     return (

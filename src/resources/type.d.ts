@@ -53,10 +53,10 @@ declare module "trip" {
   export type TripType = {
     description: string;
     destination: string;
-    end_date: string;
+    end_date: Date;
     id: string;
     places: PlaceType[];
-    start_date: string;
+    start_date: Date;
     title: string;
   };
 }

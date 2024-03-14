@@ -73,7 +73,9 @@ export const TripCard = ({ data }: TripCardProps) => {
               </DropdownMenuLabel>
 
               <DropdownMenuItem className="cursor-pointer font-medium">
-                Edit
+                <a href={`/my-trips/${data.id}/edit`} className="w-full">
+                  Edit
+                </a>
               </DropdownMenuItem>
 
               <DropdownMenuItem
