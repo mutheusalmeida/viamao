@@ -53,7 +53,7 @@ export const TripCard = ({ data }: TripCardProps) => {
         </div>
 
         <div className="relative">
-          <a href={`/my-trips/${data.id}`}>
+          <a href={`/my-trips/${data.id}`} className="pr-8 line-clamp-2">
             <h1 className="font-semibold">{data.title}</h1>
           </a>
 
