@@ -6,6 +6,8 @@ import { Plus } from 'lucide-react';
 import type { SessionType } from 'session';
 import NavItem from './nav/NavItem.astro';
 import { Link } from './ui/link';
+import { Drawer, DrawerContent, DrawerTrigger } from './ui/drawer';
+import { Menu } from './nav/menu';
 
 type Props = {
   session?: SessionType
@@ -18,7 +20,7 @@ const { session } = Astro.props
     <div class="flex gap-6 items-center">
       <Image aria-role="Logo" class='max-h-7 object-cover' src={logo} alt="ViaMão logo" />
 
-      <nav aria-role="Main navigation">
+      <nav aria-role="Main navigation" class="max-sm:hidden">
         <ul class="flex space-x-6">
           <NavItem href='/'>Home</NavItem>
 
@@ -30,12 +32,31 @@ const { session } = Astro.props
     </div>
 
     {session ? (
-      <div class="flex gap-5">
-        <Link href="/my-trips/new" size='sm' className='gap-1 text-primary hover:text-white hover:bg-primary bg-primary/20'>
+      <div class="flex gap-2 sm:gap-5">
+        <Link href="/my-trips/new" size='sm' className='gap-1 max-sm:hidden text-primary hover:text-white hover:bg-primary bg-primary/20'>
           <Plus className='w-3.5 h-3.5' />
 
           Add trip
         </Link>
+
+        <Menu client:load>
+          <ul slot="links" class="flex flex-col gap-5 p-6 font-semibold">
+            <NavItem href='/'>Home</NavItem>
+
+            <NavItem href='/my-trips'>My Trips</NavItem>
+
+            <li>
+              <Link
+                href="/my-trips/new"
+                size="sm"
+                className="gap-1 text-primary hover:text-white hover:bg-primary bg-primary/20"
+              >
+                <Plus className="w-3.5 h-3.5" />
+                Add trip
+              </Link>
+            </li>
+          </ul>
+        </Menu>
 
         <AccountDropdown client:load user={session.user} />
       </div>
