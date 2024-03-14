@@ -48,6 +48,10 @@
     @apply border-border;
   }
 
+  [data-radix-popper-content-wrapper] {
+    @apply !min-w-min;
+  }
+
   html {
     @apply h-full;
   }

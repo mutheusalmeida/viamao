@@ -46,6 +46,7 @@ export const LoginForm = () => {
 
   const onSubmit: SubmitHandler<FormSchemaType> = async (data) => {
     setIsLoading(true);
+    setError(undefined);
 
     const response = await fetch("/api/login", {
       method: "POST",
