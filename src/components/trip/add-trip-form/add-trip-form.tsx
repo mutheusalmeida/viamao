@@ -24,9 +24,18 @@ export const AddTripForm = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const formSchema = z.object({
-    title: z.string().min(1, "Title is required"),
-    description: z.string().min(1, "Description is required"),
-    destination: z.string().min(1, "Destination is required"),
+    title: z
+      .string()
+      .min(1, "Title is required")
+      .max(100, "Title must be between 1 and 100 characters"),
+    description: z
+      .string()
+      .min(1, "Description is required")
+      .max(260, "Description must be between 1 and 260 characters"),
+    destination: z
+      .string()
+      .min(1, "Destination is required")
+      .max(100, "Destination must be between 1 and 100 characters"),
     start_date: z.date({
       required_error: "Start date is required",
     }),
