@@ -6,13 +6,13 @@ import { Image } from 'astro:assets';
     <div class="flex flex-wrap sm:flex-row gap-6 justify-between">
       <div class="flex flex-col gap-4">
         <a href="/" class="w-max">
-          <Image aria-role="Logo" class='max-h-7 object-cover' src={logo} alt="ViaMão logo" />
+          <Image aria-describedby="Logo" class='max-h-7 object-cover' src={logo} alt="ViaMão logo" />
         </a>
 
         <span class="font-semibold text-neutral-500">&copy; {new Date().getFullYear()} - All rights reserved</span>
       </div>
 
-      <nav class="flex flex-col gap-4 font-semibold" aria-role="Links navigation">
+      <nav class="flex flex-col gap-4 font-semibold" aria-describedby="Links navigation">
         <h2 class="text-neutral-500 uppercase">Links</h2>
 
         <ul class="flex flex-col space-y-2 text-sm">
@@ -30,7 +30,7 @@ import { Image } from 'astro:assets';
         </ul>
       </nav>
 
-      <nav class="flex flex-col gap-4 font-semibold" aria-role="Legal navigation">
+      <nav class="flex flex-col gap-4 font-semibold" aria-describedby="Legal navigation">
         <h2 class="text-neutral-500 uppercase">Legal</h2>
 
         <ul class="flex flex-col space-y-2 text-sm">

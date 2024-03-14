@@ -18,9 +18,9 @@ const { session } = Astro.props
 <header class="py-3 px-4 grid grid-cols-[minmax(auto,_60em)] justify-center">
   <div class="flex min-h-16 items-center justify-between">
     <div class="flex gap-6 items-center">
-      <Image aria-role="Logo" class='max-h-7 object-cover' src={logo} alt="ViaMão logo" />
+      <Image aria-describedby="Logo" class='max-h-7 object-cover' src={logo} alt="ViaMão logo" />
 
-      <nav aria-role="Main navigation" class="max-sm:hidden">
+      <nav aria-describedby="Main navigation" class="max-sm:hidden">
         <ul class="flex space-x-6">
           <NavItem href='/'>Home</NavItem>
 
