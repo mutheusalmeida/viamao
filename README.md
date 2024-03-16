@@ -10,7 +10,7 @@ I created the design and built the frontend and backend. You can checkout the Fi
 
 - Astro Endpoints
 - SSR with Astro
-- Goole Places API
+- Google Places API
 - Shadcn components
 - Form validation with React Hook Form and Zod
 
