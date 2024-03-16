@@ -27,8 +27,6 @@ export const GET: APIRoute = async ({ url }) => {
       `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${photoRef}&key=${import.meta.env.PUBLIC_PLACES_API_KEY}`,
     );
 
-    console.log(photoResponse);
-
     return photoResponse;
   } catch (err: unknown) {
     return new Response(
