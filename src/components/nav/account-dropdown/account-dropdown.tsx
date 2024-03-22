@@ -33,7 +33,7 @@ export const AccountDropdown = ({ user }: AccountDropdownProps) => {
 
       <DropdownMenuContent align="end" className="w-svw max-w-56">
         <DropdownMenuLabel className="line-clamp-1 text-neutral-500">
-          mutheusalmeida@gmail.com
+          {user.email}
         </DropdownMenuLabel>
 
         <DropdownMenuSeparator />
